@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block style %}
+
+<style>
+.input-group{
+    display:table;
+    width:100%;
+}
+.input-group .input-field,
+.input-group .input-group-addon{
+    display:table-cell;
+}
+</style>
+{% endblock %}
+{% block content %}
+<div class="row">
+ <div class="col l12 m6 offset-m3">
+  <H3>Find City</H3>
+
+   <div class="container">
+    <form id="search-site"  action='' method='get'>
+    <div class="input-group">
+    <div class="input-field">
+    {{ weather_form.as_p }}
+    </div>
+        <button type="submit" class="input-group-addon btn">search</button>
+    </div>
+    </form>
+  </div>
+  <span>Current weather in</span> <h4>{{ locations.name }}</h4>
+  <div>
+  {% for weather in locations.weather %}
+      <h3>{{ weather.description }}</h3>
+  {% endfor %}
+  </div>
+ </div>
+</div>
+{% endblock %}
